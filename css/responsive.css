@@ -1,0 +1,94 @@
+/* responsive.css - overrides for tablet and mobile */
+
+/* Make images responsive by default */
+img { max-width: 100%; height: auto; }
+
+@media (max-width: 768px) {
+  .nav { gap: 8px; font-size: 0.95rem; padding: 10px 8px; }
+  .nav-right { transform: translateX(-8px); }
+  .nav-logo-img { max-height: 28px; }
+  /* Animated mobile menu: hidden by height + opacity */
+  .nav-links { display:flex; flex-direction:column; gap:10px; padding: 0 10px; background: rgba(0,0,0,0.95); position: absolute; left: 0; top: 54px; width: 100%; max-height: 0; overflow: hidden; opacity: 0; transform: translateY(-8px); transition: max-height 320ms ease, opacity 260ms ease, transform 260ms ease; }
+  .nav-links.open { max-height: 380px; opacity: 1; transform: translateY(0); }
+  .nav-links li { opacity: 0; transform: translateY(-6px); transition: opacity 260ms ease, transform 260ms ease; }
+  .nav-links.open li { opacity: 1; transform: translateY(0); }
+  .nav-links.open li:nth-child(1) { transition-delay: 40ms; }
+  .nav-links.open li:nth-child(2) { transition-delay: 80ms; }
+  .nav-links.open li:nth-child(3) { transition-delay: 120ms; }
+  .nav-links.open li:nth-child(4) { transition-delay: 160ms; }
+  .nav-toggle { display: inline-block; }
+  .logo-container { margin-top: 55px; margin-bottom: 15px; }
+  .logo { width: 120px; max-width: 35vw; }
+  .icon { width: 65px; height: 65px; margin: 0 8px; }
+  .icons { gap: 12px; flex-wrap: wrap; padding: 0 8px; margin-top: 15px; }
+  .title { white-space: normal; }
+  .music-section { margin: 30px 0; }
+  .music-section h2 { margin-bottom: 15px; }
+  .music-section h3 { margin-bottom: 15px; }
+  .tracks { gap: 15px; }
+  .track { width: 110px; padding: 15px; }
+  .play-btn { width: 75px; height: 75px; }
+  .track p { font-size: 0.95rem; margin: 8px; }
+  .countdown-section { padding: 12px; margin: 15px auto; max-width: 480px; border-radius: 8px; }
+  .countdown-section p { font-size: 1.4rem; margin-bottom: 12px; }
+  .countdown-section img { max-width: 120px; margin: 0 auto 0.8rem; }
+  #countdown { gap: 0.8rem; padding: 0.8rem; }
+  .countdown-item { min-width: 70px; }
+  .countdown-item span { font-size: 1.6rem; }
+  .countdown-item .label { font-size: 0.8rem; }
+  .footer { padding: 8px 0; font-size: 0.9rem; }
+  .about-text { padding: 15px; max-width: 95%; font-size: 1rem; }
+  .about-text h2 { margin-bottom: 12px; }
+  .about-text p { font-size: 0.95rem; line-height: 1.5; }
+  .about-image img { max-width: 90%; margin: 20px auto; }
+  .member-photo { width: 150px; height: 150px; margin: 15px; }
+  .member-jony, .member-adam, .member-dan, .member-dory { margin: 15px auto; padding: 15px; font-size: 0.95rem; }
+  .member-jony h3, .member-adam h3, .member-dan h3, .member-dory h3 { font-size: 1.2rem; }
+  .member-jony p, .member-adam p, .member-dan p, .member-dory p { font-size: 0.9rem; }
+  .kontakt-content { padding: 30px 12px 30px; margin-top: -60px; }
+  .kontakt-box { padding: 16px; max-width: 95%; }
+  .kontakt-box p, .kontakt-box li { font-size: 0.95rem; }
+  .kontakt-form { gap: 12px; }
+  .kontakt-form input, .kontakt-form textarea { font-size: 0.95rem; padding: 10px; }
+}
+
+@media (max-width: 480px) {
+  .nav { gap: 6px; font-size: 0.9rem; padding: 8px 6px; }
+  .nav-right { transform: translateX(-20px); }
+  .nav-logo-img { max-height: 24px; }
+  .nav-links.open { top: 50px; max-height: 340px; }
+  .logo-container { margin-top: 50px; margin-bottom: 10px; }
+  .logo { width: 100px; }
+  .icon { width: 55px; height: 55px; margin: 0 6px; }
+  .icons { gap: 10px; margin-top: 12px; padding: 0 5px; }
+  .title { padding: 0 8px; }
+  .music-section { margin: 20px 0; }
+  .music-section h2 { margin-bottom: 10px; }
+  .music-section h3 { margin-bottom: 10px; }
+  .tracks { gap: 12px; }
+  .track { width: 100px; padding: 12px; }
+  .play-btn { width: 65px; height: 65px; }
+  .track p { font-size: 0.85rem; margin: 6px; }
+  .countdown-section { padding: 10px; margin: 12px auto; max-width: 340px; }
+  .countdown-section p { font-size: 1.1rem; margin-bottom: 10px; }
+  .countdown-section img { max-width: 100px; margin: 0 auto 0.6rem; }
+  #countdown { gap: 0.6rem; flex-wrap: wrap; padding: 0.6rem; }
+  .countdown-item { min-width: 60px; }
+  .countdown-item span { font-size: 1.3rem; }
+  .countdown-item .label { font-size: 0.7rem; }
+  .upcoming-concerts h1 { font-size: 1.2rem; }
+  .upcoming-concerts p { font-size: 0.9rem; }
+  .footer { font-size: 0.8rem; padding: 5px 0; }
+  .about-text { padding: 12px; font-size: 0.9rem; margin: 10px auto; }
+  .about-text h2 { font-size: 1.2rem; margin-bottom: 10px; }
+  .about-text p { font-size: 0.85rem; line-height: 1.4; }
+  .about-image img { max-width: 95%; margin: 15px auto; }
+  .member-photo { width: 120px; height: 120px; margin: 10px; }
+  .member-jony, .member-adam, .member-dan, .member-dory { margin: 10px auto; padding: 10px; font-size: 0.85rem; }
+  .member-jony h2, .member-adam h2, .member-dan h2, .member-dory h2 { font-size: 1.4rem; }
+  .member-jony h3, .member-adam h3, .member-dan h3, .member-dory h3 { font-size: 1rem; }
+  .member-jony p, .member-adam p, .member-dan p, .member-dory p { font-size: 0.8rem; }
+  .kontakt-content { padding: 20px 10px 20px; margin-top: -40px; }
+  .kontakt-box { padding: 12px; max-width: 98%; }
+  .kontakt-box p, .kontakt-box li { font-size: 0.9rem; }
+}

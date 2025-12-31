@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /css/
+Disallow: /js/
+Disallow: /button/
+Disallow: /clenove/
+Disallow: /fotky/
+Disallow: /logos/
+Disallow: /hudba/
+
+Sitemap: https://miminatripu.cz/sitemap.xml

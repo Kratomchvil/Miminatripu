@@ -1,0 +1,603 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* Preloader - simple fade-in effect */
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 1s ease-out 0.3s;
+}
+
+#preloader.preloader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+body::before {
+        content: "";
+            position: fixed;
+                top: 0;
+                    left: 0;
+                        width: 100%;
+                            height: 100%;   
+                                background: rgba(0, 0, 0, 0.5);
+                                    z-index: -1;
+                                    pointer-events: none;
+    }
+
+    body {  
+        background: linear-gradient(-45deg, #fdc608, #111111, #000000, #fdc608);
+            color: rgba(253,198,8,255);
+                font-family:Arial, Helvetica, sans-serif;
+                    text-align: center;
+                        margin: 0px;
+                            background-size: center;
+                                padding: 0;
+                                    overflow-x: hidden;
+                                        user-select: none;
+                                        
+    }
+    .title {
+    font-size: clamp(2rem, 10vw, 14vw);
+        font-weight: bolder;
+            text-transform: uppercase;
+                white-space: normal;
+                    animation: glow 1.5s infinite alternate, glow-pulse 2s infinite alternate;
+                        text-align: center;
+                            position: relative;
+                            padding: 0 10px;
+                            line-height: 1.1;
+                           
+                                
+                           
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 20px rgb(255, 213, 0), 0 0 20px orange; }
+            to { text-shadow: 0 0 20px rgb(255, 208, 0), 0 0 40px red; }
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 1.2rem;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 12px 20px;
+        z-index: 10;
+        font-weight: bold;
+    }
+
+    /* Nav links (desktop) */
+    .nav-links {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+    .nav-links li a {
+        color: rgba(253,198,8,255);
+        text-decoration: none;
+        padding: 6px 8px;
+    }
+
+    /* Toggle button hidden on desktop */
+    .nav-toggle { display: none; background: transparent; border: none; cursor: pointer; padding: 8px; }
+    .hamburger { display: inline-block; width: 22px; height: 2px; background: rgba(253,198,8,255); position: relative; transition: background 220ms ease, transform 220ms ease; }
+    .hamburger::before, .hamburger::after { content: ''; position: absolute; left: 0; width: 22px; height: 2px; background: rgba(253,198,8,255); transition: transform 220ms ease, top 220ms ease, opacity 220ms ease; }
+    .hamburger::before { top: -7px; }
+    .hamburger::after { top: 7px; }
+    /* Keep hamburger shape when expanded; only indicate active state subtly */
+    .nav-toggle[aria-expanded="true"] .hamburger { opacity: 0.95; }
+    .nav-toggle[aria-expanded="true"] .hamburger::before, .nav-toggle[aria-expanded="true"] .hamburger::after { top: unset; transform: none; }
+
+    .nav a {
+        color: rgba(253,198,8,255);
+            text-decoration: none;
+                transition: color 0.3s, transform 0.12s ease; 
+    }
+    /* Nav link hover: slight shrink */
+    .nav-links li a { display:inline-block; transition: transform 120ms ease, color 150ms ease; }
+    .nav-links li a:hover, .nav-links li a:focus {
+        transform: scale(0.96);
+        color: #fff;
+    }
+    /* Slight active press effect */
+    .nav-links li a:active { transform: scale(0.94); }
+    .nav a:hover {
+        color: rgba(253,198,8,255);
+            background: black;
+    }
+
+    .nav-right { margin-right: 0; }
+    .nav-logo {
+        display: inline-block;
+        margin-left: 0; /* Posunuto blíže na střed */
+    }
+    .nav-logo-img {
+        height: auto;
+        display: block;
+        border-radius: 50%;
+        max-height: 36px; /* lehce menší, aby se vešel na malé obrazovky */
+    }
+
+    /* Desktop tweak: lehké posunutí loga dovnitř obrazovky */
+    @media (min-width: 769px) {
+        .nav-right { transform: translateX(-40px); }
+    }
+
+    /* Social icons row */
+    .icons { display:flex; justify-content:center; gap:20px; align-items:center; margin-top: 20px; }
+    .logo-container {
+        text-align: center;
+            margin-top: 70px;
+                margin-bottom: 20px;
+
+    }
+
+    .logo {
+        width: 200px;
+        
+                border-radius: 50%;
+                    box-shadow: 0 0 20px rgba(253,198,8,255);
+                        transition: transform 0.3s ease;
+                            max-width: 200px;
+                               
+                            
+    }
+
+.icon {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    background-color: rgba(253,198,8,255);
+    margin: 0 12px;
+    border-radius: 35px;
+    object-fit: contain;
+}
+
+.icon:hover {
+   transform: scale(1.1);
+   box-shadow: 0 0 20px orange, 0 0 30px rgb(205, 135, 5);
+}
+
+.icons a {
+  text-decoration: none;
+    border: none;
+}
+
+.music-section {
+    text-align: center;
+        margin: 50px 0;
+            color: rgba(253,198,8,255);
+                
+}
+
+.music-section h2 {
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
+        margin-bottom: clamp(15px, 3vw, 30px);
+            text-shadow: 0 0 20px rgba(253,198,8,255);
+                color: rgba(253,198,8,255);
+}
+
+.music-section h3 {
+    font-size: clamp(0.9rem, 3vw, 1.3rem);
+        margin-bottom: clamp(10px, 2vw, 20px);
+            text-shadow: 0 0 15px rgba(253,198,8,255);
+                color: white;
+}
+.tracks {
+    display: flex;
+        justify-content: center;
+            gap: 50px;
+                flex-wrap: wrap;
+                
+}
+
+.track {
+    background-color: rgba(0, 0, 0, 0.7);
+        padding: 30px;
+            border: 2px solid rgba(253,198,8,255);
+                border-radius: 10px;
+                    width: 150px;
+                        text-align: center;
+                            box-shadow: 0 0 15px rgba(253,198,8,255);
+                                transition: transform 0.2s ease;
+                                    
+}
+
+.track:hover {
+    transform: scale(1.05);
+}
+
+.play-btn {
+    width: 100px;
+        height: 100px;
+            cursor: pointer;
+                margin-bottom: 10px;
+                    background-color: rgba(253,198,8,255);
+                        border-radius: 50%;
+                            box-shadow: 0 0 10px rgba(253,198,8,255), 0 0 20px orange;
+                                cursor: pointer;
+                                    transition: transform 0.2s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+}
+.track p {
+    margin: 10px;
+    font-size: 150%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(253,198,8,0.9);
+}
+
+.upcoming-concerts {
+    text-align: center;
+        margin: 20px 0;
+            color: rgba(253,198,8,255);
+                font-size: 1.5rem;
+                    text-shadow: 0 0 20px rgba(253,198,8,255);
+}
+
+/* Accessibility: Focus states */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid rgba(253,198,8,255);
+    outline-offset: 2px;
+}
+
+.nav-links li a:focus {
+    outline: 2px solid rgba(253,198,8,255);
+}
+.footer {
+    background: rgba(0, 0, 0, 0.350);
+        color: rgba(253,198,8,255);
+            text-align: center;
+                padding: 6px 0; /* menší vertikální prostor */
+                    font-size: 0.95rem; /* o něco menší text */
+                        margin-top: 12px; /* zmenšeno, aby footer nebyl velký */
+                            text-decoration: none;
+                
+}
+.footer a {
+    color: rgba(253,198,8,255);
+        text-decoration: none;
+            margin: 0 5px;
+}
+
+.countdown-section {
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    border: 2px solid rgba(253,198,8,255);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.548);
+    backdrop-filter: blur(5px);
+    box-shadow: 5px 4px 6px rgba(253,198,8,255);
+}
+
+.countdown-section p {
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.countdown-section img, .countdown-img {
+    max-width: 220px;
+    display: block;
+    margin: 0 auto 1rem;
+}
+
+.countdown-section p .vychodzapad {
+   color:rgba(253,198,8,255);
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.countdown-item span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgba(253,198,8,255);
+}
+
+.countdown-item .label {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: #ddd;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ************************ Sekce O nás ************************* */
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+
+}
+
+.about-text {
+    max-width: 90%;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: clamp(15px, 5vw, 100px);
+    border-radius: 10px;
+    font-size: clamp(1rem, 2.2vw, 1.2em);
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(253,198,8,255);
+    margin-top: 40px;
+    margin-bottom: 40px;
+    
+}
+
+.about-title {
+    text-align: center;
+    font-size: 3em;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 6px;
+    color: rgba(253,198,8,255);
+    text-shadow: 0 0 10px rgba(253,198,8,255);
+    padding: 20px;
+    border: 1px solid rgb(0, 0, 0); /* Žlutý rámeček */
+    border-radius: 10px; /* Zaoblené rohy */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Glow efekt */
+    width: 400px;
+    margin-top: 100px;
+    background-color: rgba(0, 0, 0, 0.7);
+    max-height: 30px;    
+}
+
+
+.section-title {
+    font-size: clamp(2rem, 8vw, 100px);
+    color: rgba(253,198,8,255);
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0 0 40px rgba(253,198,8,255);
+    background: rgba(0, 0, 0, 0.8);
+    padding: clamp(8px, 2vw, 100px) clamp(16px, 4vw, 100px);
+    display: inline-block;
+    border-radius: 10px;
+    margin-top: clamp(60px, 10vw, 200px);
+}
+
+
+.member-photo {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid rgba(253,198,8,255);
+    box-shadow: 0 0 15px rgba(253,198,8,255);
+    margin-bottom: 20px;
+}
+
+
+
+.members-header {
+    font-size: clamp(1.5rem, 5vw, 30px);
+    color: rgba(253,198,8,255); 
+    text-shadow: 0 0 20px rgba(253,198,8,255);
+    padding: clamp(8px, 2vw, 15px);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-bottom: clamp(30px, 5vw, 60px);
+    margin-top: clamp(80px, 15vw, 200px);
+}
+
+.member-jony, .member-adam, .member-dan, .member-dory {
+    margin: clamp(10px, 3vw, 50px);
+    background-color: #080808b7;
+    padding: clamp(15px, 4vw, 30px);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(253,198,8,255);
+    font-size: clamp(14px, 2.5vw, 20px);
+    font-weight: 500;
+}
+.member-jony h2, .member-adam h2, .member-dan h2, .member-dory h2 {
+    color: rgba(253,198,8,255);
+    text-shadow: 0 0 10px rgba(253,198,8,255);
+    font-size: clamp(1.8rem, 5vw, 50px);
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: rgba(255, 255, 255, 0.048);
+    padding: clamp(6px, 1.5vw, 10px);
+    border-radius: 40px;
+    margin: clamp(10px, 2vw, 20px); 
+}
+.about-text h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: rgba(253,198,8,255);
+    text-shadow: 0 0 10px rgba(253,198,8,255);
+}
+.about-text p {
+    line-height: 1.6;
+    color: #f0f0f0;
+}
+.member-adam p, .member-dan p, .member-dory p, .member-jony p {
+    line-height: 1.6;
+    color: #f0f0f0;
+    font-weight: 600;
+    
+}
+.member-jony h3, .member-adam h3, .member-dan h3, .member-dory h3 {
+    font-size: 1.5rem;
+    color: rgba(253,198,8,255);
+    text-shadow: 0 0 10px rgba(253,198,8,255);
+}
+
+/* ************************ Sekce Kontakt ************************* */
+
+.kontakt-content {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(30px, 8vw, 80px) clamp(12px, 4vw, 20px) clamp(30px, 8vw, 60px);
+    text-align: center;
+    margin-top: clamp(-80px, -15vw, -250px);
+}
+
+.kontakt-content h1 {
+    font-size: clamp(2rem, 8vw, 100px);
+    color: rgba(253,198,8,255);
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0 0 40px rgba(253,198,8,255);
+    background: rgba(0, 0, 0, 0.8);
+    padding: clamp(8px, 2vw, 100px) clamp(16px, 4vw, 100px);
+    display: inline-block;
+    border-radius: 10px;
+    margin-top: clamp(40px, 8vw, 100px);
+}
+
+.kontakt-box {
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border: 2px solid #ffcc00;
+    box-shadow: 0 0 25px #ffcc00;
+    border-radius: 20px;
+}
+
+.kontakt-box p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.kontakt-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.kontakt-box li {
+    margin: 15px 0;
+    font-size: 1.1rem;
+}
+
+.kontakt-box a {
+    color: rgba(253,198,8,255);
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.kontakt-box a:hover {
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 10px #ffcc00;
+}
+
+.kontakt-box p span {
+    color: white;
+    font-weight: bold;
+}
+
+/* Contact form styles */
+.kontakt-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.kontakt-form input,
+.kontakt-form textarea {
+    padding: clamp(10px, 2vw, 15px);
+    border: 2px solid rgba(253,198,8,0.5);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.kontakt-form input::placeholder,
+.kontakt-form textarea::placeholder {
+    color: rgba(253,198,8,0.6);
+}
+
+.kontakt-form input:focus,
+.kontakt-form textarea:focus {
+    border-color: rgba(253,198,8,1);
+    box-shadow: 0 0 10px rgba(253,198,8,0.5);
+    outline: none;
+}
+
+.submit-btn {
+    padding: clamp(10px, 2vw, 15px);
+    background-color: rgba(253,198,8,1);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(253,198,8,0.6);
+}
+
+.submit-btn:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+.kontakt-info {
+    border-top: 2px solid rgba(253,198,8,0.5);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.kontakt-info p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+
+
+
