@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+/* Hladké rolování pro vnitřní odkazy */
+html {
+    scroll-behavior: smooth;
+    /* Rezerva pro fixovaný header při skoku na kotvu */
+    scroll-padding-top: 72px;
+}
+
 /* Preloader - simple fade-in effect */
 #preloader {
     position: fixed;
@@ -28,16 +35,14 @@ body::before {
     }
 
     body {  
-        background: linear-gradient(-45deg, #fdc608, #111111, #000000, #fdc608);
-            color: rgba(253,198,8,255);
-                font-family:Arial, Helvetica, sans-serif;
-                    text-align: center;
-                        margin: 0px;
-                            background-size: center;
-                                padding: 0;
-                                    overflow-x: hidden;
-                                        user-select: none;
-                                        
+        background: linear-gradient(135deg, #0d0d0d 0%, #cc8800 100%);
+        color: #fdc608; /* žlutá pro texty */
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        margin: 0px;
+        padding: 0;
+        overflow-x: hidden;
+        user-select: none;
     }
     .title {
     font-size: clamp(2rem, 10vw, 14vw);
@@ -205,7 +210,7 @@ body::before {
 }
 
 .track {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #000000;
         padding: 30px;
             border: 2px solid rgba(253,198,8,255);
                 border-radius: 10px;
@@ -287,7 +292,7 @@ textarea:focus {
     max-width: 800px;
     border: 2px solid rgba(253,198,8,255);
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.548);
+    background-color: #000000;
     backdrop-filter: blur(5px);
     box-shadow: 5px 4px 6px rgba(253,198,8,255);
 }
@@ -353,7 +358,7 @@ textarea:focus {
 .about-text {
     max-width: 90%;
     margin-bottom: 20px;
-    background: rgba(0, 0, 0, 0.7);
+    background: #000000;
     padding: clamp(15px, 5vw, 100px);
     border-radius: 10px;
     font-size: clamp(1rem, 2.2vw, 1.2em);
@@ -367,7 +372,7 @@ textarea:focus {
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(253,198,8,255);
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
     
 }
 
@@ -422,14 +427,14 @@ textarea:focus {
     padding: clamp(8px, 2vw, 15px);
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #000000;
     margin-bottom: clamp(30px, 5vw, 60px);
     margin-top: clamp(80px, 15vw, 200px);
 }
 
 .member-jony, .member-adam, .member-dan, .member-dory {
     margin: clamp(10px, 3vw, 50px);
-    background-color: #080808b7;
+    background-color: #000000;
     padding: clamp(15px, 4vw, 30px);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(253,198,8,255);
@@ -441,7 +446,7 @@ textarea:focus {
     text-shadow: 0 0 10px rgba(253,198,8,255);
     font-size: clamp(1.8rem, 5vw, 50px);
     font-family: 'Bebas Neue', sans-serif;
-    background-color: rgba(255, 255, 255, 0.048);
+    background-color: #000000;
     padding: clamp(6px, 1.5vw, 10px);
     border-radius: 40px;
     margin: clamp(10px, 2vw, 20px); 
@@ -494,7 +499,7 @@ textarea:focus {
 
 .kontakt-box {
     max-width: 600px;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #000000;
     padding: 30px;
     border: 2px solid #ffcc00;
     box-shadow: 0 0 25px #ffcc00;
@@ -546,7 +551,7 @@ textarea:focus {
     padding: clamp(10px, 2vw, 15px);
     border: 2px solid rgba(253,198,8,0.5);
     border-radius: 8px;
-    background: rgba(0, 0, 0, 0.5);
+    background: #000000;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
