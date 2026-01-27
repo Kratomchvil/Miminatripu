@@ -13,7 +13,7 @@
     <meta name="theme-color" content="#fdc608">
     <title>MIMINATRIPU - official</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css"> <!-- Responsive overrides -->
+    <link rel="stylesheet" href="css/responsive.css"> 
     <link rel="icon" type="image/png" href="logos/favicon.png"> 
 </head>
 
@@ -63,7 +63,7 @@
 
     <section class="countdown-section">
     <img src="fotky/vychodzapad.png" alt="vychodzapad" class="countdown-img">
-        <p>Nový singl <span class="vychodzapad">VÝCHODZÁPAD</span> již brzy na vašich stramovacích platformách!</p>
+        <p>Nový singl? <span class="vychodzapad"></span> Je třeba si ještě počkat.</p>
     <div id="countdown">
         <div class="countdown-item">
             <span id="days">00</span>
@@ -84,33 +84,15 @@
     </div>
 </section>
 
- 
-
-<section class="music-section">
-    <h2>Naše <span class="hudba">Hudba</span></h2>
-      <h3>Zde si můžete poslechnout malé úryvky z naší hudby!</h3>
-
-    <div class="tracks">
-        <div class="track">
-            <img src="button/play.png" class="play-btn" data-src="hudba/kdyby-ceny-byly-nižší.mp3" alt="Play"> 
-            <p>KDYBY CENY BYLY NIŽŠÍ</p>
-        </div>
-        <div class="track">
-            <img src="button/play.png" class="play-btn" data-src="hudba/american-dream.mp3" alt="Play"> 
-            <p>VÝCHOD ZÁPAD</p>
-        </div>
-        <div class="track">
-            <img src="button/play.png" class="play-btn" data-src="hudba/jsem-muž.mp3" alt="Play">
-            <p>JSEM MUŽ</p>
-        </div>
-    </div>
-    <audio id="player"></audio>
-</section>
-
 <section class="upcoming-concerts">
     <h1><b>Nadcházející koncert</b></h1>
-    <p><u><b>20.12.2025</u></b> Trhy Valašské Meziříčí 18:00h.</p> 
-    
+    <p><u><b>14.3.2026</u></b> | Mish Mash #2 | Klub Vrátnice Rožnov p.R. | 18:00h.</p>
+    <div class="concert-map-container">
+        <h4>Přesná poloha, kde se akce nachází:</h4>
+<iframe src="https://www.google.com/maps/embed?pb=!1m24!1m8!1m3!1d191.46174059583072!2d18.129658362197034!3d49.46186914435275!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x47138f89f0a34bb3%3A0xe8697bf98729fb1!2zVnLDoXRuaWNlIC0gaHVkZWJuw60ga2x1Yiwga2F2w6FybmEsIGJhciwgMS4gbcOhamUgMTAwMCwgNzU2IDYxIFJvxb5ub3YgcG9kIFJhZGhvxaF0xJttIDE!3m2!1d49.4618019!2d18.1297057!4m5!1s0x47138f89f0a34bb3%3A0xe8697bf98729fb1!2zVnLDoXRuaWNlIC0gaHVkZWJuw60ga2x1Yiwga2F2w6FybmEsIGJhciwgMS4gbcOhamUgMTAwMCwgNzU2IDYxIFJvxb5ub3YgcG9kIFJhZGhvxaF0xJttIDE!3m2!1d49.4618019!2d18.1297057!5e0!3m2!1scs!2scz!4v1769554281845!5m2!1scs!2scz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
+    <div class="concert-links">
+        <a href="https://www.vratnice.com/program/2026/03/mish-mash-2" target="_blank" rel="noopener noreferrer" class="concert-link">Stránka akce</a>
+    </div>
 </section>
 
 <section class="about-content" id="onas">
@@ -179,8 +161,8 @@
         <h1 class="section-title">Kontakt</h1>
         <div class="kontakt-box">
             <p>Máš otázky, nápady nebo nás chceš pozvat na akci? Napiš nám!</p>
-            <form class="kontakt-form" action="https://formspree.io/f/myzyrwpk" method="POST">
-                <input type="text" name="jmeno" placeholder="Tvoje jméno" required aria-label="Jméno">
+            <form class="kontakt-form" action="https://formspree.io/f/mykwvajz" method="POST">
+                <input type="text" name="jmeno" placeholder="Tvoje jméno a příjmení" required aria-label="Jméno">
                 <input type="email" name="email" placeholder="Tvůj e-mail" required aria-label="E-mail">
                 <textarea name="message" placeholder="Tvá zpráva (např. pozvání na koncert, kolaborace...)" required aria-label="Zpráva" rows="5"></textarea>
                 <button type="submit" class="submit-btn">Odeslat</button>
@@ -222,35 +204,11 @@ window.addEventListener("load", function() {
     </script>
     
 
-<script>
-const player = document.getElementById('player');
-let currentBtn = null;
 
-document.querySelectorAll('.play-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const track = btn.dataset.src;
-
-        // Pokud už hraje tahle písnička
-        if (currentBtn === btn) {
-            if (!player.paused) {
-                player.pause();
-            } else {
-                player.play();
-            }
-            return;
-        }
-
-        // Jiná písnička → nastav src a spusť
-        player.src = track;
-        player.play();
-        currentBtn = btn;
-    });
-});
-</script>
 
 <script>
 // Nastavení cílového data - další singl (15.2.2026 00:00)
-const countDownDate = new Date(2026, 1, 15, 0, 0, 0).getTime();
+const countDownDate = new Date(2026, 0, 0, 0, 0, 0).getTime();
 
 // Aktualizace každou sekundu
 const x = setInterval(function() {
@@ -272,7 +230,7 @@ const x = setInterval(function() {
     // Když odpočet skončí
     if (distance < 0) {
         clearInterval(x);
-        document.getElementById("countdown").innerHTML = "NOVÁ PÍSEŇ JE VENKU!";
+        document.getElementById("countdown").innerHTML = "Singl se připravuje!";
     }
 }, 1000);
 </script>

@@ -1,21 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-/* Hladké rolování pro vnitřní odkazy */
 html {
     scroll-behavior: smooth;
-    /* Rezerva pro fixovaný header při skoku na kotvu */
     scroll-padding-top: 72px;
 }
 
-/* Preloader - simple fade-in effect */
-#preloader {
-    position: fixed;
-    inset: 0;
-    background: #000;
-    z-index: 10000;
-    opacity: 1;
-    transition: opacity 1s ease-out 0.3s;
-}
 
 #preloader.preloader-hidden {
     opacity: 0;
@@ -35,8 +24,12 @@ body::before {
     }
 
     body {  
-        background: linear-gradient(135deg, #0d0d0d 0%, #cc8800 100%);
-        color: #fdc608; /* žlutá pro texty */
+        background: RGBA(253,198,8,255);
+background: -webkit-linear-gradient(228deg, rgba(253, 198, 8, 1) 0%, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 1) 45%, rgba(253, 198, 8, 1) 100%, rgba(253, 198, 8, 1) 100%);
+background: -moz-linear-gradient(228deg, rgba(253, 198, 8, 1) 0%, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 1) 45%, rgba(253, 198, 8, 1) 100%, rgba(253, 198, 8, 1) 100%);
+background: linear-gradient(228deg, rgba(253, 198, 8, 1) 0%, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 1) 45%, rgba(253, 198, 8, 1) 100%, rgba(253, 198, 8, 1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#FDC608", endColorstr="#FDC608", GradientType=0);
+        color: #fdc608; 
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
         margin: 0px;
@@ -81,7 +74,6 @@ body::before {
         font-weight: bold;
     }
 
-    /* Nav links (desktop) */
     .nav-links {
         display: flex;
         gap: 40px;
@@ -96,13 +88,11 @@ body::before {
         padding: 6px 8px;
     }
 
-    /* Toggle button hidden on desktop */
     .nav-toggle { display: none; background: transparent; border: none; cursor: pointer; padding: 8px; }
     .hamburger { display: inline-block; width: 22px; height: 2px; background: rgba(253,198,8,255); position: relative; transition: background 220ms ease, transform 220ms ease; }
     .hamburger::before, .hamburger::after { content: ''; position: absolute; left: 0; width: 22px; height: 2px; background: rgba(253,198,8,255); transition: transform 220ms ease, top 220ms ease, opacity 220ms ease; }
     .hamburger::before { top: -7px; }
     .hamburger::after { top: 7px; }
-    /* Keep hamburger shape when expanded; only indicate active state subtly */
     .nav-toggle[aria-expanded="true"] .hamburger { opacity: 0.95; }
     .nav-toggle[aria-expanded="true"] .hamburger::before, .nav-toggle[aria-expanded="true"] .hamburger::after { top: unset; transform: none; }
 
@@ -111,13 +101,11 @@ body::before {
             text-decoration: none;
                 transition: color 0.3s, transform 0.12s ease; 
     }
-    /* Nav link hover: slight shrink */
     .nav-links li a { display:inline-block; transition: transform 120ms ease, color 150ms ease; }
     .nav-links li a:hover, .nav-links li a:focus {
         transform: scale(0.96);
         color: #fff;
     }
-    /* Slight active press effect */
     .nav-links li a:active { transform: scale(0.94); }
     .nav a:hover {
         color: rgba(253,198,8,255);
@@ -127,21 +115,19 @@ body::before {
     .nav-right { margin-right: 0; }
     .nav-logo {
         display: inline-block;
-        margin-left: 0; /* Posunuto blíže na střed */
+        margin-left: 0; 
     }
     .nav-logo-img {
         height: auto;
         display: block;
         border-radius: 50%;
-        max-height: 36px; /* lehce menší, aby se vešel na malé obrazovky */
+        max-height: 36px; 
     }
 
-    /* Desktop tweak: lehké posunutí loga dovnitř obrazovky */
     @media (min-width: 769px) {
         .nav-right { transform: translateX(-40px); }
     }
 
-    /* Social icons row */
     .icons { display:flex; justify-content:center; gap:20px; align-items:center; margin-top: 20px; }
     .logo-container {
         text-align: center;
@@ -181,73 +167,7 @@ body::before {
     border: none;
 }
 
-.music-section {
-    text-align: center;
-        margin: 50px 0;
-            color: rgba(253,198,8,255);
-                
-}
 
-.music-section h2 {
-    font-size: clamp(1.5rem, 5vw, 3.5rem);
-        margin-bottom: clamp(15px, 3vw, 30px);
-            text-shadow: 0 0 20px rgba(253,198,8,255);
-                color: rgba(253,198,8,255);
-}
-
-.music-section h3 {
-    font-size: clamp(0.9rem, 3vw, 1.3rem);
-        margin-bottom: clamp(10px, 2vw, 20px);
-            text-shadow: 0 0 15px rgba(253,198,8,255);
-                color: white;
-}
-.tracks {
-    display: flex;
-        justify-content: center;
-            gap: 50px;
-                flex-wrap: wrap;
-                
-}
-
-.track {
-    background-color: #000000;
-        padding: 30px;
-            border: 2px solid rgba(253,198,8,255);
-                border-radius: 10px;
-                    width: 150px;
-                        text-align: center;
-                            box-shadow: 0 0 15px rgba(253,198,8,255);
-                                transition: transform 0.2s ease;
-                                    
-}
-
-.track:hover {
-    transform: scale(1.05);
-}
-
-.play-btn {
-    width: 100px;
-        height: 100px;
-            cursor: pointer;
-                margin-bottom: 10px;
-                    background-color: rgba(253,198,8,255);
-                        border-radius: 50%;
-                            box-shadow: 0 0 10px rgba(253,198,8,255), 0 0 20px orange;
-                                cursor: pointer;
-                                    transition: transform 0.2s ease;
-}
-
-.play-btn:hover {
-    transform: scale(1.1);
-}
-.track p {
-    margin: 10px;
-    font-size: 150%;
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(253,198,8,0.9);
-}
 
 .upcoming-concerts {
     text-align: center;
@@ -256,8 +176,34 @@ body::before {
                 font-size: 1.5rem;
                     text-shadow: 0 0 20px rgba(253,198,8,255);
 }
+.upcoming-concerts p, h4{
+    color: white;
+}
+.concert-map-container {
+    margin: 20px auto;
+        max-width: 600px;
+            border: 2px solid rgba(253,198,8,255);
+                box-shadow: 0 0 15px rgba(253,198,8,255);
+}
+.concert-links {
+    margin-top: 15px;
+}
+.concert-link {
+    display: inline-block;
+        padding: 15px 100px;
+            background-color: rgba(253,198,8,255);
+                color: #000;
+                    text-decoration: none;
+                        font-weight: bolder;
+                            border-radius: 8px;
+                                box-shadow: 0 0 10px rgba(253,198,8,255);
+                                    transition: transform 0.3s, box-shadow 0.3s;
+}
+.concert-link:hover {
+    transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(253,198,8,255);
+}   
 
-/* Accessibility: Focus states */
 a:focus,
 button:focus,
 input:focus,
@@ -273,9 +219,9 @@ textarea:focus {
     background: rgba(0, 0, 0, 0.350);
         color: rgba(253,198,8,255);
             text-align: center;
-                padding: 6px 0; /* menší vertikální prostor */
-                    font-size: 0.95rem; /* o něco menší text */
-                        margin-top: 12px; /* zmenšeno, aby footer nebyl velký */
+                padding: 6px 0; 
+                    font-size: 0.95rem; 
+                        margin-top: 12px; 
                             text-decoration: none;
                 
 }
@@ -384,9 +330,9 @@ textarea:focus {
     color: rgba(253,198,8,255);
     text-shadow: 0 0 10px rgba(253,198,8,255);
     padding: 20px;
-    border: 1px solid rgb(0, 0, 0); /* Žlutý rámeček */
-    border-radius: 10px; /* Zaoblené rohy */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Glow efekt */
+    border: 1px solid rgb(0, 0, 0); 
+    border-radius: 10px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); 
     width: 400px;
     margin-top: 100px;
     background-color: rgba(0, 0, 0, 0.7);
