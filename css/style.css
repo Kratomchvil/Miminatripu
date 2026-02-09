@@ -184,6 +184,24 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#FDC608", endC
         max-width: 600px;
             border: 2px solid rgba(253,198,8,255);
                 box-shadow: 0 0 15px rgba(253,198,8,255);
+                    padding: 15px;
+}
+
+.iframe-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+}
+
+.iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 .concert-links {
     margin-top: 15px;
