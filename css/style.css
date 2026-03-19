@@ -271,7 +271,7 @@ textarea:focus {
 }
 
 .countdown-section img, .countdown-img {
-    max-width: 220px;
+    max-width: 450px;
     display: block;
     margin: 0 auto 1rem;
 }
